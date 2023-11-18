@@ -14,7 +14,13 @@ pipeline {
 
     stage('build_jar') {
       steps {
-        sh './mvnw package'
+        sh 'mvn install -DskipTests=true'
+      }
+    }
+
+    stage('run_app') {
+      steps {
+        sh 'java -jar .\target\petclinic.2.3.1.BUILD-SNAPSHOT.jar'
       }
     }
 
