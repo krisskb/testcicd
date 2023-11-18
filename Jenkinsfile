@@ -20,7 +20,7 @@ pipeline {
 
     stage('run_app') {
       steps {
-        sh 'java -jar ./target/petclinic.2.3.1.BUILD-SNAPSHOT.jar'
+        sh 'pwd'
       }
     }
 
