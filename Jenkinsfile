@@ -14,7 +14,7 @@ pipeline {
 
     stage('build_jar') {
       steps {
-        sh 'echo $DOCKERHUB_CREDENTIALS_PSW'
+        sh 'mvn install -DskipTests=true'
       }
     }
 
