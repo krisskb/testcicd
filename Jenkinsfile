@@ -3,8 +3,8 @@ pipeline {
     node {
       label 'build'
     }
-
   }
+
   stages {
     stage('pull_source') {
       steps {
