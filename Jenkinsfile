@@ -5,9 +5,6 @@ pipeline {
     }
 
   }
-  environment {
-    DOCKERHUB_CREDENTIALS = credentials('dockerhub')
-  }
   stages {
     stage('pull_source') {
       steps {
@@ -17,7 +14,7 @@ pipeline {
 
     stage('build_jar') {
       steps {
-        sh 'mvn install -DskipTests=true'
+        sh 'echo $DOCKERHUB_CREDENTIALS_USR'
       }
     }
 
@@ -40,5 +37,7 @@ pipeline {
     }
 
   }
-
+  environment {
+    DOCKERHUB_CREDENTIALS = credentials('dockerhub')
+  }
 }
