@@ -5,6 +5,9 @@ pipeline {
     }
 
   }
+  environment {
+    DOCKERHUB_CREDENTIALS = credentials('dockerhub')
+  }
   stages {
     stage('pull_source') {
       steps {
@@ -37,7 +40,5 @@ pipeline {
     }
 
   }
-  environment {
-    DOCKERHUB_CREDENTIALS = 'credentials(\'dockerhub\')'
-  }
+
 }
