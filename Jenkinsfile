@@ -22,7 +22,7 @@ pipeline {
       steps {
         sh 'sudo docker image prune -a'
         sh 'sudo docker build . -t krisskb001/petclinic'
-        sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+        sh 'echo $DOCKERHUB_CREDENTIALS_PSW | sudo docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
         sh 'sudo docker push krisskb001/petclinic'
         sh 'sudo docker logout'
       }
